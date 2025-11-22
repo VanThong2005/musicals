@@ -1,0 +1,41 @@
+/* custom styles */
+
+body {
+    background: #f8f9fa;
+}
+
+.logo {
+    font-weight: 700;
+    color: #1a2b4a;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.logo span {
+    color: #c0392b;
+}
+
+.card-img-top {
+    height: 180px;
+    object-fit: cover;
+}
+
+.navbar-nav .nav-link {
+    padding-right: 1rem;
+}
+
+.footer {
+    background: #fff;
+    border-top: 1px solid #e9ecef;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.container-hero {
+    background: linear-gradient(90deg, #eaf2ff, #fff);
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    text-align: center;
+}
