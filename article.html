@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>article</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/custom.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="../img/logo.png" height="40" alt="Logo"> Nhạc Cụ Vui
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+            <div class="collapse navbar-collapse" id="navMain">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="products.html">Sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Giới thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Liên hệ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.html">Đăng ký</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Đăng nhập</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Giỏ hàng <span class="badge bg-primary cart-count">0</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class='container'>
+        <div id="article-content" class="mt-3"></div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const posts = [{
+                    id: 1,
+                    title: "Hướng dẫn chọn đàn Guitar",
+                    content: `
+        <h2>1. Xác định mục đích sử dụng</h2>
+        <p>Bạn cần xác định rõ mình mua đàn guitar để làm gì: học tập, đệm hát, chơi fingerstyle hay biểu diễn. Mỗi mục đích sẽ phù hợp với một loại đàn khác nhau.</p>
+
+        <h2>2. Chọn loại guitar phù hợp</h2>
+        <p><b>Guitar Acoustic:</b> Âm sáng, vang, phù hợp đệm hát và đa số người mới học.<br>
+        <b>Guitar Classic:</b> Dây nylon êm tay, thích hợp người mới hoàn toàn, chơi cổ điển.</p>
+
+        <h2>3. Kiểm tra chất liệu gỗ</h2>
+        <ul>
+            <li><b>Spruce:</b> Âm sáng, vang, phổ biến nhất.</li>
+            <li><b>Cedar:</b> Âm ấm, mềm mại.</li>
+            <li><b>Mahogany:</b> Âm dày và ấm.</li>
+        </ul>
+
+        <h2>4. Kiểm tra action (độ cao dây)</h2>
+        <p>Action quá cao sẽ làm bạn đau tay, bấm khó. Action chuẩn giúp chơi thoải mái, không rè.</p>
+
+        <h2>5. Chọn kích thước đàn</h2>
+        <ul>
+            <li>3/4: Phù hợp trẻ em hoặc người tay nhỏ.</li>
+            <li>7/8: Trung bình.</li>
+            <li>Full size (41 inch): Người lớn dùng phổ biến.</li>
+        </ul>
+
+        <h2>6. Thử đàn trước khi mua</h2>
+        <p>Hãy thử cảm nhận âm thanh, độ thoải mái khi ôm đàn và độ nặng của đàn. Đàn hợp tay sẽ giúp bạn tiến bộ nhanh hơn rất nhiều.</p>
+        `
+                }, {
+                    id: 2,
+                    title: "5 bài tập cơ bản cho Piano",
+                    content: `
+        <h2>1. Luyện nhận biết vị trí nốt</h2>
+        <p>Làm quen với các nốt C – D – E – F – G – A – B trên bàn phím. Tập bấm từng nốt thật chậm và đều.</p>
+
+        <h2>2. Luyện thang âm C Major</h2>
+        <p>Chơi lên – xuống thang âm C trưởng bằng tay phải, tay trái, rồi cả hai tay. Giúp ngón linh hoạt và quen vị trí.</p>
+
+        <h2>3. Luyện rải hợp âm</h2>
+        <p>Bắt đầu với 3 hợp âm cơ bản nhất: C – F – G. Rải từng hợp âm từ thấp lên cao, sau đó chuyển hợp âm mượt mà.</p>
+
+        <h2>4. Luyện tiết tấu cơ bản</h2>
+        <p>Gõ nhịp 4/4 và 3/4 bằng tay để tập cảm nhịp. Sau đó áp dụng vào các bài đơn giản.</p>
+
+        <h2>5. Ghép hai tay với bài đơn giản</h2>
+        <p>Bài gợi ý: “Happy Birthday”. Tay trái giữ hợp âm, tay phải chơi giai điệu. Đây là bài tuyệt vời để bắt đầu ghép hai tay.</p>
+        `
+                }];
+                const params = new URLSearchParams(location.search);
+                const id = Number(params.get("id") || 1);
+                const p = posts.find(x => x.id === id);
+                if (!p) document.getElementById("article-content").innerHTML = "<p>Bài viết không tìm thấy</p>";
+                else document.getElementById("article-content").innerHTML = "<div class='card p-3'><h2>" + p.title + "</h2><p>" + p.content + "</p></div>";
+            });
+        </script>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center py-4">
+            <h5>Về NHẠC CỤ VUI</h5>
+            <p>Nhạc Cụ Vui chuyên cung cấp thông tin và sản phẩm nhạc cụ chính hãng, giá tốt.</p>
+
+            <p>Email: nhaccuvui@gmail.com | Hotline: 0901 234 567</p>
+
+            <p>© 2025 NHẠC CỤ VUI. All rights reserved. | Đồng hành cùng bạn trên mọi giai điệu.</p>
+        </div>
+    </footer>
+
+
+
+    <!-- Site modal (Bootstrap) -->
+    <div class="modal fade" id="siteModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Thông báo</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+                <div class="modal-body"></div>
+                <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/scripts.js"></script>
+</body>
+
+</html>
